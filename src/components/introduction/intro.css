@@ -1,0 +1,31 @@
+.introText {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.introArrow {
+  width: 60px;
+  height: 60px;
+  border: 1px dotted black;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s;
+  position: absolute;
+  bottom: -280px;
+  right: -200px;
+}
+
+.introArrow:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transform: translateY(-0.25em);
+  border: 5px solid black;
+}
+
+.introArrow:active {
+  box-shadow: none;
+  transform: none;
+}

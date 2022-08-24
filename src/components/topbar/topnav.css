@@ -1,0 +1,25 @@
+.topnavContainer {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  margin-left: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  color: black;
+  margin: 0 0.8rem;
+  font-size: 1.3rem;
+  list-style: none;
+}
+
+.current {
+  border-bottom: 2px solid black;
+}

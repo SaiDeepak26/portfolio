@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import IntroPage from "./components/introduction/intro.page";
+import Aboutme from "./components/about me/about.me";
+import Projects from "./components/projects/projects";
+import Topnav from "./components/topbar/topnav";
+import { motion } from "framer-motion";
+import InitialLoadAnimation from "./components/InitialLoad/initial.loading";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+export default function App() {
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    let randomTime = Math.floor(Math.random() * (2000 - 900 + 1) + 900);
+    const timer = setTimeout(() => setInitialLoad(false), randomTime);
+    // return () => {
+    //   clearTimeout(timer);
+    // };
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      {initialLoad ? (
+        <motion.div
+          className="App"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <InitialLoadAnimation />
+        </motion.div>
+      ) : (
+        <>
+          <Topnav />
+          <Routes>
+            <Route path="/" exact={true} element={<IntroPage />} />
+            <Route path="aboutme" exact={true} element={<Aboutme />} />
+            <Route path="projects" exact={true} element={<Projects />} />
+          </Routes>
+        </>
+      )}
+    </>
   );
 }
-
-export default App;
