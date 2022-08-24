@@ -13,10 +13,7 @@ export default function App() {
 
   useEffect(() => {
     let randomTime = Math.floor(Math.random() * (2000 - 900 + 1) + 900);
-    const timer = setTimeout(() => setInitialLoad(false), randomTime);
-    // return () => {
-    //   clearTimeout(timer);
-    // };
+    setTimeout(() => setInitialLoad(false), randomTime);
   }, []);
   return (
     <>

@@ -1,9 +1,7 @@
-import { useState } from "react";
 import Rocket from "../images/rocket.gif";
 import "./topnav.css";
 import { NavLink } from "react-router-dom";
 export default function Topnav() {
-  let [activeTab, setActiveTab] = useState();
   const links = [
     { name: "Home", path: "/" },
     { name: "About me", path: "/aboutme" },
@@ -17,12 +15,7 @@ export default function Topnav() {
       </div>
       <nav>
         {links.map((link, index) => (
-          <NavLink
-            key={index}
-            to={link.path}
-            onClick={() => setActiveTab(link.name)}
-            class="topnavLinks"
-          >
+          <NavLink key={index} to={link.path} class="topnavLinks">
             <li>{link.name}</li>
           </NavLink>
         ))}
